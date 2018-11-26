@@ -30,15 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel2.SuspendLayout();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -52,19 +52,6 @@
             this.panel1.TabIndex = 1;
             this.panel1.Click += new System.EventHandler(this.panel1_Click);
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.numericUpDown2);
-            this.panel2.Controls.Add(this.numericUpDown1);
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Location = new System.Drawing.Point(21, 12);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(675, 445);
-            this.panel2.TabIndex = 2;
-            this.panel2.Visible = false;
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(199, 375);
@@ -73,6 +60,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Сохранить";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -80,7 +68,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 42);
             this.button2.TabIndex = 1;
-            this.button2.Text = "Удалить";
+            this.button2.Text = "Отмена";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // numericUpDown1
@@ -92,8 +80,14 @@
             0,
             0});
             this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.numericUpDown1.Size = new System.Drawing.Size(58, 22);
             this.numericUpDown1.TabIndex = 2;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
             // 
             // numericUpDown2
             // 
@@ -116,6 +110,19 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Добавление будильника";
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.numericUpDown2);
+            this.panel2.Controls.Add(this.numericUpDown1);
+            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.button1);
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(694, 469);
+            this.panel2.TabIndex = 2;
+            this.panel2.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -126,22 +133,22 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Будильник";
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 
