@@ -14,7 +14,7 @@ namespace WindowsFormsApp1
     {
         List<string> alarm = new List<string>();
         int numbers_of_alarms = 0;
-        string lb_name, pn_name;
+        string lb_name, pn_name, check_name;
         public Form1()
         {
             InitializeComponent();
@@ -32,7 +32,26 @@ namespace WindowsFormsApp1
 
         private void button3_Click(object sender, EventArgs e)
         {
-            
+            int number_for_delete = 0;
+            foreach (var ch in Controls.OfType<CheckBox>())
+            {
+                if (ch.Checked)
+                {
+                    foreach (var pn in Controls.OfType<Panel>())
+                    {
+                        if ((pn.Name == "panel3") || (pn.Name == "panel4") || (pn.Name == "panel5") || (pn.Name == "panel7") || (pn.Name == "panel8") || (pn.Name == "panel9") || (pn.Name == "panel10") || (pn.Name == "panel11"))
+                        {
+                            pn.Visible = false; 
+                        }
+                    }
+                    foreach (var che in Controls.OfType<CheckBox>())
+                    {
+                        che.Checked = false;
+                        che.Visible = false;
+                    }
+                    break;
+                }
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -60,6 +79,9 @@ namespace WindowsFormsApp1
                 pn_name = "panel" + Convert.ToString(numbers_of_alarms + 2);
                 var find_panel = this.Controls.Find(pn_name, true).FirstOrDefault();
                 find_panel.Visible = true;
+                check_name = "checkBox" + Convert.ToString(numbers_of_alarms);
+                var find_check = this.Controls.Find(check_name, true).FirstOrDefault();
+                find_check.Visible = true;
             }
             else
             {

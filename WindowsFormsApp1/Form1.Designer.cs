@@ -156,7 +156,7 @@
             this.panel2.Controls.Add(this.numericUpDown1);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.button1);
-            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Location = new System.Drawing.Point(0, 3);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(694, 469);
             this.panel2.TabIndex = 2;
@@ -164,22 +164,22 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.checkBox1);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Location = new System.Drawing.Point(0, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(217, 42);
+            this.panel3.Size = new System.Drawing.Size(149, 42);
             this.panel3.TabIndex = 3;
             this.panel3.Visible = false;
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(145, 14);
+            this.checkBox1.Location = new System.Drawing.Point(155, 17);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(18, 17);
             this.checkBox1.TabIndex = 1;
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.Visible = false;
             // 
             // label2
             // 
@@ -193,22 +193,22 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.checkBox2);
             this.panel4.Controls.Add(this.label3);
             this.panel4.Location = new System.Drawing.Point(0, 51);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(217, 42);
+            this.panel4.Size = new System.Drawing.Size(149, 42);
             this.panel4.TabIndex = 4;
             this.panel4.Visible = false;
             // 
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(145, 14);
+            this.checkBox2.Location = new System.Drawing.Point(155, 65);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(18, 17);
             this.checkBox2.TabIndex = 1;
             this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.Visible = false;
             // 
             // label3
             // 
@@ -222,22 +222,22 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.checkBox3);
             this.panel5.Controls.Add(this.label4);
             this.panel5.Location = new System.Drawing.Point(0, 99);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(217, 42);
+            this.panel5.Size = new System.Drawing.Size(149, 42);
             this.panel5.TabIndex = 4;
             this.panel5.Visible = false;
             // 
             // checkBox3
             // 
             this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(145, 14);
+            this.checkBox3.Location = new System.Drawing.Point(155, 113);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(18, 17);
             this.checkBox3.TabIndex = 1;
             this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.Visible = false;
             // 
             // label4
             // 
@@ -251,22 +251,22 @@
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.checkBox4);
             this.panel6.Controls.Add(this.label5);
             this.panel6.Location = new System.Drawing.Point(0, 147);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(217, 42);
+            this.panel6.Size = new System.Drawing.Size(149, 42);
             this.panel6.TabIndex = 4;
             this.panel6.Visible = false;
             // 
             // checkBox4
             // 
             this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(145, 14);
+            this.checkBox4.Location = new System.Drawing.Point(155, 161);
             this.checkBox4.Name = "checkBox4";
             this.checkBox4.Size = new System.Drawing.Size(18, 17);
             this.checkBox4.TabIndex = 1;
             this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkBox4.Visible = false;
             // 
             // label5
             // 
@@ -280,22 +280,22 @@
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.checkBox5);
             this.panel7.Controls.Add(this.label6);
             this.panel7.Location = new System.Drawing.Point(0, 195);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(217, 42);
+            this.panel7.Size = new System.Drawing.Size(149, 42);
             this.panel7.TabIndex = 4;
             this.panel7.Visible = false;
             // 
             // checkBox5
             // 
             this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(145, 14);
+            this.checkBox5.Location = new System.Drawing.Point(155, 209);
             this.checkBox5.Name = "checkBox5";
             this.checkBox5.Size = new System.Drawing.Size(18, 17);
             this.checkBox5.TabIndex = 1;
             this.checkBox5.UseVisualStyleBackColor = true;
+            this.checkBox5.Visible = false;
             // 
             // label6
             // 
@@ -309,22 +309,22 @@
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.checkBox6);
             this.panel8.Controls.Add(this.label7);
             this.panel8.Location = new System.Drawing.Point(0, 243);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(217, 42);
+            this.panel8.Size = new System.Drawing.Size(149, 42);
             this.panel8.TabIndex = 4;
             this.panel8.Visible = false;
             // 
             // checkBox6
             // 
             this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(145, 14);
+            this.checkBox6.Location = new System.Drawing.Point(155, 257);
             this.checkBox6.Name = "checkBox6";
             this.checkBox6.Size = new System.Drawing.Size(18, 17);
             this.checkBox6.TabIndex = 1;
             this.checkBox6.UseVisualStyleBackColor = true;
+            this.checkBox6.Visible = false;
             // 
             // label7
             // 
@@ -338,22 +338,22 @@
             // 
             // panel9
             // 
-            this.panel9.Controls.Add(this.checkBox7);
             this.panel9.Controls.Add(this.label8);
             this.panel9.Location = new System.Drawing.Point(0, 291);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(217, 42);
+            this.panel9.Size = new System.Drawing.Size(149, 42);
             this.panel9.TabIndex = 4;
             this.panel9.Visible = false;
             // 
             // checkBox7
             // 
             this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(145, 14);
+            this.checkBox7.Location = new System.Drawing.Point(155, 305);
             this.checkBox7.Name = "checkBox7";
             this.checkBox7.Size = new System.Drawing.Size(18, 17);
             this.checkBox7.TabIndex = 1;
             this.checkBox7.UseVisualStyleBackColor = true;
+            this.checkBox7.Visible = false;
             // 
             // label8
             // 
@@ -367,22 +367,22 @@
             // 
             // panel10
             // 
-            this.panel10.Controls.Add(this.checkBox8);
             this.panel10.Controls.Add(this.label9);
             this.panel10.Location = new System.Drawing.Point(0, 339);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(217, 42);
+            this.panel10.Size = new System.Drawing.Size(149, 42);
             this.panel10.TabIndex = 4;
             this.panel10.Visible = false;
             // 
             // checkBox8
             // 
             this.checkBox8.AutoSize = true;
-            this.checkBox8.Location = new System.Drawing.Point(145, 14);
+            this.checkBox8.Location = new System.Drawing.Point(155, 353);
             this.checkBox8.Name = "checkBox8";
             this.checkBox8.Size = new System.Drawing.Size(18, 17);
             this.checkBox8.TabIndex = 1;
             this.checkBox8.UseVisualStyleBackColor = true;
+            this.checkBox8.Visible = false;
             // 
             // label9
             // 
@@ -396,22 +396,22 @@
             // 
             // panel11
             // 
-            this.panel11.Controls.Add(this.checkBox9);
             this.panel11.Controls.Add(this.label10);
             this.panel11.Location = new System.Drawing.Point(0, 387);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(217, 42);
+            this.panel11.Size = new System.Drawing.Size(149, 42);
             this.panel11.TabIndex = 4;
             this.panel11.Visible = false;
             // 
             // checkBox9
             // 
             this.checkBox9.AutoSize = true;
-            this.checkBox9.Location = new System.Drawing.Point(145, 16);
+            this.checkBox9.Location = new System.Drawing.Point(155, 401);
             this.checkBox9.Name = "checkBox9";
             this.checkBox9.Size = new System.Drawing.Size(18, 17);
             this.checkBox9.TabIndex = 1;
             this.checkBox9.UseVisualStyleBackColor = true;
+            this.checkBox9.Visible = false;
             // 
             // label10
             // 
@@ -439,7 +439,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 476);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.checkBox9);
+            this.Controls.Add(this.checkBox8);
+            this.Controls.Add(this.checkBox7);
+            this.Controls.Add(this.checkBox6);
+            this.Controls.Add(this.checkBox5);
+            this.Controls.Add(this.checkBox4);
+            this.Controls.Add(this.checkBox3);
+            this.Controls.Add(this.checkBox2);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.panel8);
@@ -451,6 +459,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel11);
             this.Controls.Add(this.panel10);
+            this.Controls.Add(this.panel2);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Будильник";
@@ -477,6 +486,7 @@
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
