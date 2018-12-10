@@ -50,14 +50,12 @@ namespace WindowsFormsApp1
                 {
                     if (ch.Checked)
                     {
-                        int first = 0;
                         foreach (var lb in Controls.OfType<Label>())
                         {
-                            if (first != 0)
+                            if (Convert.ToInt32(Convert.ToString(lb.Name[5])) > 0)
                             {
                                 lb.Visible = false;
                             }
-                            first++;
                         }
                         foreach (var che in Controls.OfType<CheckBox>())
                         {
