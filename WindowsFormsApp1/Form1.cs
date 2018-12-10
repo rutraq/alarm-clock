@@ -83,6 +83,7 @@ namespace WindowsFormsApp1
                         }
                     }
                 }
+                numbers_of_alarms -= number_for_delete;
             }
             else
             {
