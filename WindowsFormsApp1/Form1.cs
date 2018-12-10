@@ -23,7 +23,6 @@ namespace WindowsFormsApp1
         private void panel1_Click(object sender, EventArgs e)
         {
             panel2.Visible = true;
-            MessageBox.Show("lel");
         }
 
         private void button3_Click(object sender, EventArgs e)
