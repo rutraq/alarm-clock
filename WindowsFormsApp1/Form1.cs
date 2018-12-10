@@ -25,14 +25,28 @@ namespace WindowsFormsApp1
             panel2.Visible = true;
         }
 
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
+            List<string> alarms_for_delete = new List<string>();
             int number_for_delete = 0;
             foreach (var ch in Controls.OfType<CheckBox>())
             {
                 if (ch.Checked)
                 {
                     number_for_delete++;
+                    for (int i = 0; i < alarm.Count; i++)
+                    {
+                        if (alarm[Convert.ToInt32(Convert.ToString(ch.Name[8])) - 1] == alarm[i])
+                        {
+                            alarm.RemoveAt(i);
+                        }
+                    }
+                    alarms_for_delete.Add(ch.Name);
                 }
             }
             if (number_for_delete != 0)
@@ -41,12 +55,14 @@ namespace WindowsFormsApp1
                 {
                     if (ch.Checked)
                     {
-                        foreach (var pn in Controls.OfType<Panel>())
+                        int first = 0;
+                        foreach (var lb in Controls.OfType<Label>())
                         {
-                            if ((pn.Name == "panel3") || (pn.Name == "panel4") || (pn.Name == "panel5") || (pn.Name == "panel7") || (pn.Name == "panel8") || (pn.Name == "panel9") || (pn.Name == "panel10") || (pn.Name == "panel11"))
+                            if (first != 0)
                             {
-                                pn.Visible = false;
+                                lb.Visible = false;
                             }
+                            first++;
                         }
                         foreach (var che in Controls.OfType<CheckBox>())
                         {
@@ -55,7 +71,31 @@ namespace WindowsFormsApp1
                         }
                         break;
                     }
-                } 
+                }
+                for (int i = 0; i < alarm.Count; i++)
+                {
+                    foreach (var lb in Controls.OfType<Label>())
+                    {
+                        if (Convert.ToInt32(Convert.ToString(lb.Name[5])) == (i + 2))
+                        {
+                            lb.Text = alarm[i];
+                        }
+                    }
+                    foreach (var lb in Controls.OfType<Label>())
+                    {
+                        if (Convert.ToInt32(Convert.ToString(lb.Name[5])) == (i + 2))
+                        {
+                            lb.Visible = true;
+                        }
+                    }
+                    foreach (var ch in Controls.OfType<CheckBox>())
+                    {
+                        if (Convert.ToInt32(Convert.ToString(ch.Name[8])) == (i + 1))
+                        {
+                            ch.Visible = true;
+                        }
+                    }
+                }
             }
             else
             {
@@ -85,9 +125,10 @@ namespace WindowsFormsApp1
                 lb_name = "label" + Convert.ToString(numbers_of_alarms + 1);
                 var find_label = this.Controls.Find(lb_name, true).FirstOrDefault();
                 find_label.Text = alarm[numbers_of_alarms - 1];
-                pn_name = "panel" + Convert.ToString(numbers_of_alarms + 2);
-                var find_panel = this.Controls.Find(pn_name, true).FirstOrDefault();
-                find_panel.Visible = true;
+                find_label.Visible = true;
+                //pn_name = "panel" + Convert.ToString(numbers_of_alarms + 2);
+                //var find_panel = this.Controls.Find(pn_name, true).FirstOrDefault();
+                //find_panel.Visible = true;
                 check_name = "checkBox" + Convert.ToString(numbers_of_alarms);
                 var find_check = this.Controls.Find(check_name, true).FirstOrDefault();
                 find_check.Visible = true;
