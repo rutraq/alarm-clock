@@ -20,14 +20,15 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void panel1_Click(object sender, EventArgs e)
         {
             panel2.Visible = true;
+            MessageBox.Show("yes");
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         private void button3_Click(object sender, EventArgs e)
