@@ -23,11 +23,7 @@ namespace WindowsFormsApp1
         private void panel1_Click(object sender, EventArgs e)
         {
             panel2.Visible = true;
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
+            MessageBox.Show("yeah");
         }
 
         private void button3_Click(object sender, EventArgs e)
