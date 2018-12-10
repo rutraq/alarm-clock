@@ -169,7 +169,6 @@
             this.panel3.Size = new System.Drawing.Size(149, 42);
             this.panel3.TabIndex = 3;
             this.panel3.Visible = false;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // label2
             // 
