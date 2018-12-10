@@ -25,11 +25,6 @@ namespace WindowsFormsApp1
             panel2.Visible = true;
         }
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
             int number_for_delete = 0;
