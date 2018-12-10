@@ -14,7 +14,7 @@ namespace WindowsFormsApp1
     {
         List<string> alarm = new List<string>();
         int numbers_of_alarms = 0;
-        string lb_name, pn_name, check_name;
+        string lb_name, check_name;
         public Form1()
         {
             InitializeComponent();
@@ -23,11 +23,6 @@ namespace WindowsFormsApp1
         private void panel1_Click(object sender, EventArgs e)
         {
             panel2.Visible = true;
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -41,7 +36,7 @@ namespace WindowsFormsApp1
                     number_for_delete++;
                     for (int i = 0; i < alarm.Count; i++)
                     {
-                        if (alarm[Convert.ToInt32(Convert.ToString(ch.Name[8])) - 1] == alarm[i])
+                        if (alarm[Convert.ToInt32(Convert.ToString(ch.Name[8])) - number_for_delete] == alarm[i])
                         {
                             alarm.RemoveAt(i);
                         }
@@ -79,12 +74,6 @@ namespace WindowsFormsApp1
                         if (Convert.ToInt32(Convert.ToString(lb.Name[5])) == (i + 2))
                         {
                             lb.Text = alarm[i];
-                        }
-                    }
-                    foreach (var lb in Controls.OfType<Label>())
-                    {
-                        if (Convert.ToInt32(Convert.ToString(lb.Name[5])) == (i + 2))
-                        {
                             lb.Visible = true;
                         }
                     }
@@ -126,9 +115,6 @@ namespace WindowsFormsApp1
                 var find_label = this.Controls.Find(lb_name, true).FirstOrDefault();
                 find_label.Text = alarm[numbers_of_alarms - 1];
                 find_label.Visible = true;
-                //pn_name = "panel" + Convert.ToString(numbers_of_alarms + 2);
-                //var find_panel = this.Controls.Find(pn_name, true).FirstOrDefault();
-                //find_panel.Visible = true;
                 check_name = "checkBox" + Convert.ToString(numbers_of_alarms);
                 var find_check = this.Controls.Find(check_name, true).FirstOrDefault();
                 find_check.Visible = true;
