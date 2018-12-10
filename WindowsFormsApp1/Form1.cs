@@ -32,20 +32,34 @@ namespace WindowsFormsApp1
             {
                 if (ch.Checked)
                 {
-                    foreach (var pn in Controls.OfType<Panel>())
-                    {
-                        if ((pn.Name == "panel3") || (pn.Name == "panel4") || (pn.Name == "panel5") || (pn.Name == "panel7") || (pn.Name == "panel8") || (pn.Name == "panel9") || (pn.Name == "panel10") || (pn.Name == "panel11"))
-                        {
-                            pn.Visible = false; 
-                        }
-                    }
-                    foreach (var che in Controls.OfType<CheckBox>())
-                    {
-                        che.Checked = false;
-                        che.Visible = false;
-                    }
-                    break;
+                    number_for_delete++;
                 }
+            }
+            if (number_for_delete != 0)
+            {
+                foreach (var ch in Controls.OfType<CheckBox>())
+                {
+                    if (ch.Checked)
+                    {
+                        foreach (var pn in Controls.OfType<Panel>())
+                        {
+                            if ((pn.Name == "panel3") || (pn.Name == "panel4") || (pn.Name == "panel5") || (pn.Name == "panel7") || (pn.Name == "panel8") || (pn.Name == "panel9") || (pn.Name == "panel10") || (pn.Name == "panel11"))
+                            {
+                                pn.Visible = false;
+                            }
+                        }
+                        foreach (var che in Controls.OfType<CheckBox>())
+                        {
+                            che.Checked = false;
+                            che.Visible = false;
+                        }
+                        break;
+                    }
+                } 
+            }
+            else
+            {
+                MessageBox.Show("Не выбран ни один будильник для удаления");
             }
         }
 
