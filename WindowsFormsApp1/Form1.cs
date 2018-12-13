@@ -100,6 +100,22 @@ namespace WindowsFormsApp1
         private void timer1_Tick(object sender, EventArgs e)
         {
             panel3.Controls[0].Text = Convert.ToString(DateTime.Now.Hour) + ":" + Convert.ToString(DateTime.Now.Minute);
+            foreach (String time in alarm)
+            {
+                if (time.Length == 5)
+                {
+                    string hours = Convert.ToString(time[0]) + Convert.ToString(time[1]);
+                    string minutes = Convert.ToString(time[3]) + Convert.ToString(time[4]);
+                    if ((hours == Convert.ToString(DateTime.Now.Hour)) && (minutes == Convert.ToString(DateTime.Now.Minute)))
+                    {
+                        MessageBox.Show("Будильник");
+                    }
+                }
+                else
+                {
+
+                }
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
