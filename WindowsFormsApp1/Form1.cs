@@ -102,11 +102,6 @@ namespace WindowsFormsApp1
             panel3.Controls[0].Text = Convert.ToString(DateTime.Now.Hour) + ":" + Convert.ToString(DateTime.Now.Minute);
         }
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             panel2.Visible = false;

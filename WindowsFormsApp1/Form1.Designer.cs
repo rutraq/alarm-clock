@@ -143,7 +143,7 @@
             this.panel2.Controls.Add(this.numericUpDown1);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.button1);
-            this.panel2.Location = new System.Drawing.Point(2, -5);
+            this.panel2.Location = new System.Drawing.Point(1, -5);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(694, 469);
             this.panel2.TabIndex = 2;
@@ -356,7 +356,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(177, 39);
             this.panel3.TabIndex = 6;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // label11
             // 
