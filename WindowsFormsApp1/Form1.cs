@@ -18,6 +18,7 @@ namespace WindowsFormsApp1
         public Form1()
         {
             InitializeComponent();
+            panel3.Controls[0].Text = Convert.ToString(DateTime.Now.Hour) + ":" + Convert.ToString(DateTime.Now.Minute);
         }
 
         private void panel1_Click(object sender, EventArgs e)
@@ -94,6 +95,16 @@ namespace WindowsFormsApp1
         private void button2_Click(object sender, EventArgs e)
         {
             panel2.Visible = false;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            panel3.Controls[0].Text = Convert.ToString(DateTime.Now.Hour) + ":" + Convert.ToString(DateTime.Now.Minute);
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
@@ -55,9 +56,13 @@
             this.checkBox9 = new System.Windows.Forms.CheckBox();
             this.button3 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -138,7 +143,7 @@
             this.panel2.Controls.Add(this.numericUpDown1);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.button1);
-            this.panel2.Location = new System.Drawing.Point(0, -5);
+            this.panel2.Location = new System.Drawing.Point(2, -5);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(694, 469);
             this.panel2.TabIndex = 2;
@@ -344,6 +349,31 @@
             this.label10.Text = "label10";
             this.label10.Visible = false;
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.label11);
+            this.panel3.Location = new System.Drawing.Point(505, 12);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(177, 39);
+            this.panel3.TabIndex = 6;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label11.Location = new System.Drawing.Point(20, 5);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(99, 32);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "label11";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -355,6 +385,7 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.checkBox8);
             this.Controls.Add(this.label8);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.checkBox7);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.checkBox6);
@@ -377,6 +408,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -409,6 +442,9 @@
         private System.Windows.Forms.CheckBox checkBox9;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
