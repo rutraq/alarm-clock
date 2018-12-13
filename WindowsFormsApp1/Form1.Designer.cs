@@ -89,6 +89,7 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "Отмена";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // numericUpDown1
             // 
@@ -137,7 +138,7 @@
             this.panel2.Controls.Add(this.numericUpDown1);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.button1);
-            this.panel2.Location = new System.Drawing.Point(1, -5);
+            this.panel2.Location = new System.Drawing.Point(0, -5);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(694, 469);
             this.panel2.TabIndex = 2;
@@ -323,7 +324,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(555, 11);
+            this.button3.Location = new System.Drawing.Point(368, 11);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(98, 34);
             this.button3.TabIndex = 5;

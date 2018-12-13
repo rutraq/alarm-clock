@@ -91,6 +91,11 @@ namespace WindowsFormsApp1
             }
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            panel2.Visible = false;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             panel2.Visible = false;
