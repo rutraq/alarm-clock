@@ -114,7 +114,13 @@ namespace WindowsFormsApp1
                 }
                 else
                 {
-
+                    string hours = Convert.ToString(time[0]);
+                    string minutes = Convert.ToString(time[2]) + Convert.ToString(time[3]);
+                    if ((hours == Convert.ToString(DateTime.Now.Hour)) && (minutes == Convert.ToString(DateTime.Now.Minute)))
+                    {
+                        (new System.Media.SoundPlayer(@"j.wav")).PlayLooping();
+                        timer1.Enabled = false;
+                    }
                 }
             }
         }
