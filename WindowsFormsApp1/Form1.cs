@@ -108,7 +108,8 @@ namespace WindowsFormsApp1
                     string minutes = Convert.ToString(time[3]) + Convert.ToString(time[4]);
                     if ((hours == Convert.ToString(DateTime.Now.Hour)) && (minutes == Convert.ToString(DateTime.Now.Minute)))
                     {
-                        MessageBox.Show("Будильник");
+                        (new System.Media.SoundPlayer(@"j.wav")).PlayLooping();
+                        timer1.Enabled = false;
                     }
                 }
                 else
