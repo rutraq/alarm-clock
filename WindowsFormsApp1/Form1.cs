@@ -14,11 +14,20 @@ namespace WindowsFormsApp1
     {
         List<string> alarm = new List<string>();
         int numbers_of_alarms = 0;
-        string lb_name, check_name;
+        string lb_name, check_name, last_alarm;
+        int a, b, otv, number_of_questions = 0, yours_otv;
+        Random rnd = new Random();
         public Form1()
         {
             InitializeComponent();
-            panel3.Controls[0].Text = Convert.ToString(DateTime.Now.Hour) + ":" + Convert.ToString(DateTime.Now.Minute);
+            if (Convert.ToString(DateTime.Now.Minute).Length == 1)
+            {
+                panel3.Controls[0].Text = Convert.ToString(DateTime.Now.Hour) + ":0" + Convert.ToString(DateTime.Now.Minute);
+            }
+            else
+            {
+                panel3.Controls[0].Text = Convert.ToString(DateTime.Now.Hour) + ":" + Convert.ToString(DateTime.Now.Minute);
+            }
         }
 
         private void panel1_Click(object sender, EventArgs e)
@@ -92,6 +101,68 @@ namespace WindowsFormsApp1
             }
         }
 
+        private void richTextBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if ((e.KeyCode == Keys.Enter) && (richTextBox1.Text.Length != 0))
+            {
+                yours_otv = Convert.ToInt32(richTextBox1.Text);
+                richTextBox1.Clear();
+                if (yours_otv != otv)
+                {
+                    if (number_of_questions == 1)
+                    {
+                        MessageBox.Show("Не верный ответ");
+                        a = rnd.Next(-20, 20);
+                        b = rnd.Next(-20, 20);
+                        otv = a + b;
+                        panel4.Controls[1].Text = Convert.ToString(a) + " + " + Convert.ToString(b);
+                    }
+                    else if (number_of_questions == 2)
+                    {
+                        MessageBox.Show("Не верный ответ");
+                        a = rnd.Next(-20, 20);
+                        b = rnd.Next(-20, 20);
+                        otv = a - b;
+                        panel4.Controls[1].Text = Convert.ToString(a) + " - " + Convert.ToString(b);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Не верный ответ");
+                        a = rnd.Next(-10, 10);
+                        b = rnd.Next(-10, 10);
+                        otv = a * b;
+                        panel4.Controls[1].Text = Convert.ToString(a) + " * " + Convert.ToString(b);
+                    }
+                }
+                else
+                {
+                    if (number_of_questions == 1)
+                    {
+                        a = rnd.Next(-20, 20);
+                        b = rnd.Next(-20, 20);
+                        otv = a - b;
+                        panel4.Controls[1].Text = Convert.ToString(a) + " - " + Convert.ToString(b);
+                        number_of_questions++;
+                    }
+                    else if (number_of_questions == 2)
+                    {
+                        a = rnd.Next(-10, 10);
+                        b = rnd.Next(-10, 10);
+                        otv = a * b;
+                        panel4.Controls[1].Text = Convert.ToString(a) + " * " + Convert.ToString(b);
+                        number_of_questions++;
+                    }
+                    else
+                    {
+                        (new System.Media.SoundPlayer(@"j.wav")).Stop();
+                        panel4.Visible = false;
+                        number_of_questions = 0;
+                        timer1.Enabled = true;
+                    }
+                }
+            }
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             panel2.Visible = false;
@@ -99,16 +170,35 @@ namespace WindowsFormsApp1
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            panel3.Controls[0].Text = Convert.ToString(DateTime.Now.Hour) + ":" + Convert.ToString(DateTime.Now.Minute);
+            string check_hours, check_minutes;
+            if (Convert.ToString(DateTime.Now.Minute).Length == 1)
+            {
+                check_hours = Convert.ToString(DateTime.Now.Hour);
+                check_minutes = "0" + Convert.ToString(DateTime.Now.Minute);
+                panel3.Controls[0].Text = check_hours + ":" + check_minutes; 
+            }
+            else
+            {
+                check_hours = Convert.ToString(DateTime.Now.Hour);
+                check_minutes = Convert.ToString(DateTime.Now.Minute);
+                panel3.Controls[0].Text = check_hours + ":" + check_minutes;
+            }
             foreach (String time in alarm)
             {
                 if (time.Length == 5)
                 {
                     string hours = Convert.ToString(time[0]) + Convert.ToString(time[1]);
                     string minutes = Convert.ToString(time[3]) + Convert.ToString(time[4]);
-                    if ((hours == Convert.ToString(DateTime.Now.Hour)) && (minutes == Convert.ToString(DateTime.Now.Minute)))
+                    if ((hours == check_hours) && (minutes == check_minutes) && (time != last_alarm))
                     {
                         (new System.Media.SoundPlayer(@"j.wav")).PlayLooping();
+                        a = rnd.Next(-20, 20);
+                        b = rnd.Next(-20, 20);
+                        otv = a + b;
+                        number_of_questions++;
+                        panel4.Controls[1].Text = Convert.ToString(a) + " + " + Convert.ToString(b);
+                        panel4.Visible = true;
+                        last_alarm = time;
                         timer1.Enabled = false;
                     }
                 }
@@ -116,9 +206,16 @@ namespace WindowsFormsApp1
                 {
                     string hours = Convert.ToString(time[0]);
                     string minutes = Convert.ToString(time[2]) + Convert.ToString(time[3]);
-                    if ((hours == Convert.ToString(DateTime.Now.Hour)) && (minutes == Convert.ToString(DateTime.Now.Minute)))
+                    if ((hours == check_hours) && (minutes == check_minutes) && (time != last_alarm))
                     {
                         (new System.Media.SoundPlayer(@"j.wav")).PlayLooping();
+                        a = rnd.Next(-20, 20);
+                        b = rnd.Next(-20, 20);
+                        otv = a + b;
+                        number_of_questions++;
+                        panel4.Controls[1].Text = Convert.ToString(a) + " + " + Convert.ToString(b);
+                        panel4.Visible = true;
+                        last_alarm = time;
                         timer1.Enabled = false;
                     }
                 }
