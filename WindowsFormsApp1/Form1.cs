@@ -7,16 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Speech.Recognition;
 
 namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
-        List<string> alarm = new List<string>();
-        int numbers_of_alarms = 0;
-        string lb_name, check_name, last_alarm;
+        static List<string> alarm = new List<string>();
+        static int numbers_of_alarms = 0;
+        static string lb_name, check_name, last_alarm;
         int a, b, otv, number_of_questions = 0, yours_otv;
         Random rnd = new Random();
+        static Label l;
+        static Panel p;
+        Choices comands = new Choices();
         public Form1()
         {
             InitializeComponent();
@@ -28,6 +32,98 @@ namespace WindowsFormsApp1
             {
                 panel3.Controls[0].Text = Convert.ToString(DateTime.Now.Hour) + ":" + Convert.ToString(DateTime.Now.Minute);
             }
+        }
+        static void sre_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
+        {
+            if (e.Result.Confidence > 0.62)
+            {
+                Form1 f = new Form1();
+                f.button3.Visible = true;
+                f.panel2.Visible = false;
+                MessageBox.Show("sosi");
+                MessageBox.Show(e.Result.Text);
+                l.Visible = false;
+                p.Visible = false;
+                int length = e.Result.Text.Length;
+                alarm.Add(Convert.ToString(e.Result.Text[length - 5]) + Convert.ToString(e.Result.Text[length - 4]) + ":" + Convert.ToString(e.Result.Text[length - 2]) + Convert.ToString(e.Result.Text[length - 1]));
+                if (numbers_of_alarms == 0)
+                {
+                    f.button3.Visible = true;
+                }
+                //if (f.comands)
+                //string minutes = Convert.ToString(f.numericUpDown2.Value);
+                //if (minutes.Length == 1)
+                //{
+                //    f.alarm.Add(Convert.ToString(numericUpDown1.Value) + ":0" + minutes);
+                //}
+                //else
+                //{
+                //    alarm.Add(Convert.ToString(numericUpDown1.Value) + ":" + minutes);
+                //}
+                numbers_of_alarms++;
+                if (numbers_of_alarms < 10)
+                {
+                    lb_name = "label" + Convert.ToString(numbers_of_alarms + 1);
+                    var find_label = f.Controls.Find(lb_name, true).FirstOrDefault();
+                    find_label.Text = alarm[numbers_of_alarms - 1];
+                    find_label.Visible = true;
+                    check_name = "checkBox" + Convert.ToString(numbers_of_alarms);
+                    var find_check = f.Controls.Find(check_name, true).FirstOrDefault();
+                    find_check.Visible = true;
+                }
+                else
+                {
+                    MessageBox.Show("Количество будильников достигло максимального количества");
+                }
+            }
+        }
+        private void button4_Click(object sender, EventArgs e)
+        {
+            p = panel2;
+            l = label13;
+            label13.Visible = true;
+            System.Globalization.CultureInfo ci = new System.Globalization.CultureInfo("ru-Ru");
+            SpeechRecognitionEngine sre = new SpeechRecognitionEngine(ci);
+            sre.SetInputToDefaultAudioDevice();
+
+            sre.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(sre_SpeechRecognized);
+
+            for (int i = 0; i < 24; i++)
+            {
+                for (int j = 0; j < 60; j++)
+                {
+                    if (i < 10)
+                    {
+                        if (j < 10)
+                        {
+                            comands.Add("Поставь будильник на 0" + Convert.ToString(i) + " 0" + Convert.ToString(j));
+                        }
+                        else
+                        {
+                            comands.Add("Поставь будильник на 0" + Convert.ToString(i) + " " + Convert.ToString(j));
+                        }
+                    }
+                    else
+                    {
+                        if (j < 10)
+                        {
+                            comands.Add("Поставь будильник на " + Convert.ToString(i) + " 0" + Convert.ToString(j));
+                        }
+                        else
+                        {
+                            comands.Add("Поставь будильник на " + Convert.ToString(i) + " " + Convert.ToString(j));
+                        }
+                    }
+                }
+            }
+
+            GrammarBuilder gb = new GrammarBuilder();
+            gb.Append(comands);
+
+            Grammar g = new Grammar(gb);
+            sre.LoadGrammar(g);
+
+            sre.RecognizeAsync(RecognizeMode.Multiple);
         }
 
         private void panel1_Click(object sender, EventArgs e)
