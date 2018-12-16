@@ -21,6 +21,7 @@ namespace WindowsFormsApp1
         static Label l;
         static Panel p;
         Choices comands = new Choices();
+        SpeechRecognitionEngine sre = new SpeechRecognitionEngine();
         public Form1()
         {
             InitializeComponent();
@@ -32,15 +33,52 @@ namespace WindowsFormsApp1
             {
                 panel3.Controls[0].Text = Convert.ToString(DateTime.Now.Hour) + ":" + Convert.ToString(DateTime.Now.Minute);
             }
+            for (int i = 0; i < 24; i++)
+            {
+                for (int j = 0; j < 60; j++)
+                {
+                    if (i < 10)
+                    {
+                        if (j < 10)
+                        {
+                            comands.Add("Поставь будильник на 0" + Convert.ToString(i) + " 0" + Convert.ToString(j));
+                        }
+                        else
+                        {
+                            comands.Add("Поставь будильник на 0" + Convert.ToString(i) + " " + Convert.ToString(j));
+                        }
+                    }
+                    else
+                    {
+                        if (j < 10)
+                        {
+                            comands.Add("Поставь будильник на " + Convert.ToString(i) + " 0" + Convert.ToString(j));
+                        }
+                        else
+                        {
+                            comands.Add("Поставь будильник на " + Convert.ToString(i) + " " + Convert.ToString(j));
+                        }
+                    }
+                }
+            }
+            System.Globalization.CultureInfo ci = new System.Globalization.CultureInfo("ru-Ru");
+            sre = new SpeechRecognitionEngine(ci);
+
+            sre.SetInputToDefaultAudioDevice();
+
+            sre.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(sre_SpeechRecognized);
+
+            GrammarBuilder gb = new GrammarBuilder();
+            gb.Append(comands);
+
+            Grammar g = new Grammar(gb);
+            sre.LoadGrammar(g);
         }
         static void sre_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
-            if (e.Result.Confidence > 0.62)
+            if (e.Result.Confidence > 0.42)
             {
                 Form1 f = new Form1();
-                f.button3.Visible = true;
-                f.panel2.Visible = false;
-                MessageBox.Show("sosi");
                 MessageBox.Show(e.Result.Text);
                 l.Visible = false;
                 p.Visible = false;
@@ -82,48 +120,7 @@ namespace WindowsFormsApp1
             p = panel2;
             l = label13;
             label13.Visible = true;
-            System.Globalization.CultureInfo ci = new System.Globalization.CultureInfo("ru-Ru");
-            SpeechRecognitionEngine sre = new SpeechRecognitionEngine(ci);
-            sre.SetInputToDefaultAudioDevice();
-
-            sre.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(sre_SpeechRecognized);
-
-            for (int i = 0; i < 24; i++)
-            {
-                for (int j = 0; j < 60; j++)
-                {
-                    if (i < 10)
-                    {
-                        if (j < 10)
-                        {
-                            comands.Add("Поставь будильник на 0" + Convert.ToString(i) + " 0" + Convert.ToString(j));
-                        }
-                        else
-                        {
-                            comands.Add("Поставь будильник на 0" + Convert.ToString(i) + " " + Convert.ToString(j));
-                        }
-                    }
-                    else
-                    {
-                        if (j < 10)
-                        {
-                            comands.Add("Поставь будильник на " + Convert.ToString(i) + " 0" + Convert.ToString(j));
-                        }
-                        else
-                        {
-                            comands.Add("Поставь будильник на " + Convert.ToString(i) + " " + Convert.ToString(j));
-                        }
-                    }
-                }
-            }
-
-            GrammarBuilder gb = new GrammarBuilder();
-            gb.Append(comands);
-
-            Grammar g = new Grammar(gb);
-            sre.LoadGrammar(g);
-
-            sre.RecognizeAsync(RecognizeMode.Multiple);
+            sre.RecognizeAsync(RecognizeMode.Single);
         }
 
         private void panel1_Click(object sender, EventArgs e)
